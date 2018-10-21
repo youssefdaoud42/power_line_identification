@@ -1,0 +1,22 @@
+import math
+def yaw_angle(x0,y0,x1,y1):
+    if x0==x1:
+        distance= 0
+        angle=0
+    elif x1>x0 and y0>y1:
+        anglerad=math.atan(float(x1-x0)/float(y0-y1))
+        angle = math.degrees(anglerad)
+        distance= x1-x0
+    elif x1<x0 and y0>y1:
+        anglerad = math.atan(float(x0- x1) / float(y0 - y1))
+        angle = math.degrees(anglerad)
+        distance = x0 - x1
+    elif y1==y0 and x1>x0:
+        angle=90
+        distance=0
+    else:
+        angle=None
+        distance=None
+    return distance,angle
+
+print yaw_angle(293, 400, 294, 400)
